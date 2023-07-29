@@ -1,0 +1,235 @@
+/*
+#############
+    RESET
+#############
+*/
+/* Global defaults */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+  outline-color: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+/* Core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Media defaults */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Anchor defaults*/
+a {
+  display: block;
+}
+
+p a {
+  display: inline;
+}
+
+/* List elements defaults */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Tables defaults */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Font Defaults */
+h1, h2, h3, h4, h5, h6, p, span, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+}
+
+/* Reduced Motion Settings */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/*
+
+
+
+#############
+GLOBAL STYLES
+#############
+*/
+:root {
+  /*
+
+  COLOR VARIABLES 
+  */
+  /* primary */
+  --clr-primary-400: hsl(31, 77%, 52%);
+  --clr-primary-600: hsl(184, 100%, 22%);
+  --clr-primary-700: hsl(179, 100%, 13%);
+  /* secondary */
+  /* neutral */
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-200: hsla(0, 0%, 100%, 0.75);
+  --clr-neutral-300: hsl(0, 0%, 95%);
+  /*
+
+  FONT VARIABLES 
+  */
+  /* Font families */
+  --ff-base: "Lexend Deca", sans-serif;
+  --ff-secondary: "Big Shoulders Display", sans-serif;
+  /* Font sizes */
+  --fs-400: 0.9375rem; /* - 15px */
+  --fs-700: 2.5rem; /* ---- 40px */
+  /* Font weights */
+  --fw-regular: 400;
+  --fw-bold: 700;
+  /* 
+
+  SIZE VARIABLES 
+  */
+  --size-100: 0.625rem; /* -- 10px */
+  --size-200: 0.75rem; /* --- 12px */
+  --size-300: 0.875rem; /* -- 14px */
+  --size-400: 1rem; /* ------ 16px */
+  --size-450: 1.125rem; /* -- 18px */
+  --size-500: 1.25rem; /* --- 20px */
+  --size-550: 1.5rem; /* ---- 24px */
+  --size-600: 1.75rem; /* --- 28px */
+  --size-650: 2rem; /* ------ 32px */
+  --size-700: 2.25rem; /* --- 36px */
+  --size-750: 2.5rem; /* ---- 40px */
+  --size-800: 2.75rem; /* --- 44px */
+  --size-825: 2.875rem; /* -- 46px */
+  --size-850: 3rem; /* ------ 48px */
+  --size-900: 3.25rem; /* --- 52px */
+  --size-950: 4rem; /* ------ 64px */
+}
+
+/*
+
+
+
+###############
+UTILITY CLASSES
+###############
+*/
+.primary-heading {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-700);
+  color: var(--clr-neutral-300);
+  text-transform: uppercase;
+}
+
+/*
+
+
+
+##############
+GENERAL STYLES
+##############
+*/
+body {
+  font-family: var(--ff-base);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-regular);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-neutral-300);
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/*
+
+
+
+#############
+LAYOUT STYLES
+#############
+*/
+.card {
+  max-width: 24rem;
+  margin: 5.5rem var(--size-550);
+  display: grid;
+  border-radius: var(--size-100);
+  overflow: hidden;
+}
+@media screen and (min-width: 50em) {
+  .card {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 57rem;
+    margin: var(--size-850);
+  }
+}
+.card__section {
+  padding: var(--size-825);
+}
+.card__section:nth-child(1) {
+  background-color: var(--clr-primary-400);
+  color: var(--clr-primary-400);
+}
+.card__section:nth-child(2) {
+  background-color: var(--clr-primary-600);
+  color: var(--clr-primary-600);
+}
+.card__section:nth-child(3) {
+  background-color: var(--clr-primary-700);
+  color: var(--clr-primary-700);
+}
+.card__icon {
+  width: var(--size-950);
+  margin-bottom: var(--size-750);
+}
+.card__title {
+  margin-bottom: var(--size-600);
+}
+.card__description {
+  color: var(--clr-neutral-200);
+  margin-bottom: var(--size-500);
+  line-height: 1.6;
+}
+@media screen and (min-width: 50em) {
+  .card__description {
+    margin-bottom: 5.25rem;
+  }
+}
+.card__button {
+  max-width: 9.25rem;
+  width: 100%;
+  height: var(--size-850);
+  cursor: pointer;
+  border-radius: 100vmax;
+  background-color: var(--clr-neutral-100);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.card__button:hover, .card__button:focus-visible {
+  background: transparent;
+  color: var(--clr-neutral-100);
+  border: 2px solid var(--clr-neutral-100);
+}
+
+/*# sourceMappingURL=styles.css.map */
